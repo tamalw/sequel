@@ -73,6 +73,11 @@ module Sequel
         Sequel.ts_require 'adapters/jdbc/as400'
         db.extend(Sequel::JDBC::AS400::DatabaseMethods)
         com.ibm.as400.access.AS400JDBCDriver
+      end,
+      :teradata=>proc do |db|
+        Sequel.ts_require 'adapters/jdbc/teradata'
+        db.extend(Sequel::JDBC::Teradata::DatabaseMethods)
+        com.teradata.jdbc.TeraDriver
       end
     }
     
